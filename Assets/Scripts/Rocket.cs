@@ -23,8 +23,13 @@ public class Rocket : MonoBehaviour
         
         if(fuel > 0)
         {
-            _rb2d.AddForce(Vector3.forward * SPEED);
+            Vector2 jumpVelocity = new Vector2(0, SPEED);
+
+            _rb2d.AddForce(jumpVelocity, ForceMode2D.Impulse);
             fuel -= 10f;
+            Debug.Log(fuel);
         }
+        else
+        Debug.Log("연료 부족");
     }
 }
