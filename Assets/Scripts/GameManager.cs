@@ -61,8 +61,9 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        CurrentScoreTxt = new TextMeshProUGUI();
-        HighScoreTxt = new TextMeshProUGUI();
+        //CurrentScoreTxt = new TextMeshProUGUI(); 
+        //HighScoreTxt = new TextMeshProUGUI();
+        // ERROR: gameManager인스펙터상에서 CurrentScore.txt none처리됨. 원인은 이것 때문이었어;;
     }
 
     void SetScore()
@@ -70,17 +71,16 @@ public class GameManager : MonoBehaviour
         rocketHeight = rocket.position.y;
         Debug.Log(rocketHeight);
 
-        currentScore = Mathf.FloorToInt(rocketHeight) * 100;
+        currentScore = Mathf.FloorToInt(rocketHeight) * 100 + 300;
         Debug.Log(currentScore);
 
-        /* ERROR: gameManager인스펙터상에서 CurrentScore.txt none처리됨.
         CurrentScoreTxt.text = currentScore.ToString();
 
         if (currentScore > highScore)
         {
             highScore = currentScore;
             HighScoreTxt.text = highScore.ToString();
-        }
-        */
+        }        
     }
 }
+
